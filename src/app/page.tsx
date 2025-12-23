@@ -22,16 +22,19 @@ export default function Home() {
         <CtaCard
           sector={SECTORS.SMARTPHONES.id}
           title={SECTORS.SMARTPHONES.name}
+          buttonText="Find My Phone"
           icon={<Smartphone className="w-12 h-12" />}
         />
         <CtaCard
           sector={SECTORS.EARPHONES.id}
           title={SECTORS.EARPHONES.name}
+          buttonText="Find My Audio"
           icon={<Headphones className="w-12 h-12" />}
         />
         <CtaCard
           sector={SECTORS.LAPTOPS.id}
           title={SECTORS.LAPTOPS.name}
+          buttonText="Find My Laptop"
           icon={<Laptop className="w-12 h-12" />}
         />
       </div>
@@ -43,10 +46,12 @@ function CtaCard({
   sector,
   title,
   icon,
+  buttonText,
 }: {
   sector: string;
   title: string;
   icon: React.ReactNode;
+  buttonText: string;
 }) {
   return (
     <Card className="text-center hover:shadow-lg transition-shadow duration-300">
@@ -56,7 +61,7 @@ function CtaCard({
       </CardHeader>
       <CardContent>
         <Button asChild size="lg" className="w-full bg-accent hover:bg-accent/90">
-          <Link href={`/${sector}`}>Find My {title.split(" ")[0]}</Link>
+          <Link href={`/${sector}`}>{buttonText}</Link>
         </Button>
       </CardContent>
     </Card>
