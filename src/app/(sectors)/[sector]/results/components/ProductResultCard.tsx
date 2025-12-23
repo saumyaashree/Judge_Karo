@@ -34,7 +34,7 @@ export default function ProductResultCard({ recommendation }: { recommendation: 
             <div className="flex justify-between items-start">
               <div>
                 <CardTitle className="text-2xl font-headline mb-1">{product.name}</CardTitle>
-                <p className="text-muted-foreground font-semibold">${product.price}</p>
+                <p className="text-muted-foreground font-semibold">₹{product.price.toLocaleString('en-IN')}</p>
               </div>
               <Badge variant={buyNowOrWait === 'WAIT' ? 'destructive' : 'default'}>{buyNowOrWait}</Badge>
             </div>

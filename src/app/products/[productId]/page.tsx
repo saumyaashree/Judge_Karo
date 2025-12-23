@@ -44,7 +44,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
             <div className="p-6">
               <Badge variant="secondary" className="mb-2">{product.brand}</Badge>
               <h1 className="text-3xl font-bold font-headline">{product.name}</h1>
-              <p className="text-2xl font-semibold text-accent mt-2">${product.price}</p>
+              <p className="text-2xl font-semibold text-accent mt-2">₹{product.price.toLocaleString('en-IN')}</p>
               {product.upcomingModel && (
                    <Badge variant="destructive" className="mt-2">WAIT: A new model is expected soon.</Badge>
               )}

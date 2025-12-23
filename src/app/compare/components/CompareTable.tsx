@@ -68,7 +68,7 @@ export default function CompareTable({ productsWithScores }: { productsWithScore
                                                     data-ai-hint={product.imageHint}
                                                 />
                                                 <p className="font-bold text-foreground">{product.name}</p>
-                                                <p className="text-sm text-accent font-semibold">${product.price}</p>
+                                                <p className="text-sm text-accent font-semibold">₹{product.price.toLocaleString('en-IN')}</p>
                                             </Link>
                                              <Button asChild className="mt-2 w-full">
                                                 <Link href={`/products/${product.id}`}>View Product</Link>

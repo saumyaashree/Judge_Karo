@@ -112,7 +112,7 @@ export default function QuestionnaireForm({
                             />
                             <div className="flex justify-between text-sm text-muted-foreground mt-2">
                                 <span>{question.labels?.min}</span>
-                                <span className="text-primary font-bold">{question.id === 'budget' && '$'}{field.value}</span>
+                                <span className="text-primary font-bold">{question.id === 'budget' && '₹'}{field.value}</span>
                                 <span>{question.labels?.max}</span>
                             </div>
                         </div>

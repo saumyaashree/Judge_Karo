@@ -77,7 +77,7 @@ export default function SearchBar() {
                             />
                             <div>
                                 <p className="font-semibold">{product.name}</p>
-                                <p className="text-sm text-muted-foreground">${product.price}</p>
+                                <p className="text-sm text-muted-foreground">₹{product.price.toLocaleString('en-IN')}</p>
                             </div>
                         </div>
                         ))}
