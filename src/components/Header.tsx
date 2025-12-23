@@ -8,7 +8,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Annoyed } from "lucide-react";
 
 export default function Header() {
   return (
