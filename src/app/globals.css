@@ -69,7 +69,4 @@ body {
   body {
     @apply bg-background text-foreground;
   }
-  .accessibility-mode {
-    font-size: 18px;
-  }
 }

@@ -4,16 +4,9 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import Logo from "./shared/Logo";
 import { SECTORS } from "@/lib/constants";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { useAccessibility } from "@/context/AccessibilityContext";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function Header() {
-  const { isAccessibilityMode, toggleAccessibilityMode } = useAccessibility();
 
   return (
     <header className="bg-card border-b sticky top-0 z-50">
@@ -31,18 +24,7 @@ export default function Header() {
           </Button>
         </nav>
         <div className="flex items-center">
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button variant="outline" size="sm" onClick={toggleAccessibilityMode} aria-pressed={isAccessibilityMode}>
-                    Accessibility Mode
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Bigger text • Simpler view</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            <ThemeToggle />
         </div>
       </div>
     </header>

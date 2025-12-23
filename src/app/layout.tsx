@@ -6,27 +6,13 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AccessibilityProvider, AccessibilityContext } from "@/context/AccessibilityContext";
 import React from "react";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 // export const metadata: Metadata = {
 //   title: "JudgeKro",
 //   description: "Unbiased reviews for your next purchase.",
 // };
-
-function AppBody({ children }: { children: React.ReactNode }) {
-    const { isAccessibilityMode } = React.useContext(AccessibilityContext);
-    return (
-        <body className={`font-body antialiased min-h-screen flex flex-col ${isAccessibilityMode ? 'accessibility-mode' : ''}`}>
-            <Header />
-            <main className="flex-grow container mx-auto px-4 py-8">
-            {children}
-            </main>
-            <Footer />
-            <Toaster />
-        </body>
-    )
-}
 
 export default function RootLayout({
   children,
@@ -45,9 +31,21 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <AccessibilityProvider>
-        <AppBody>{children}</AppBody>
-      </AccessibilityProvider>
+      <body className={`font-body antialiased min-h-screen flex flex-col`}>
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+        >
+            <Header />
+            <main className="flex-grow container mx-auto px-4 py-8">
+            {children}
+            </main>
+            <Footer />
+            <Toaster />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
