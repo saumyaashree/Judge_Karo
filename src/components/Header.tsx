@@ -1,3 +1,5 @@
+'use client';
+
 import Link from "next/link";
 import { Button } from "./ui/button";
 import Logo from "./shared/Logo";
@@ -8,8 +10,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useAccessibility } from "@/context/AccessibilityContext";
 
 export default function Header() {
+  const { isAccessibilityMode, toggleAccessibilityMode } = useAccessibility();
+
   return (
     <header className="bg-card border-b sticky top-0 z-50">
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
@@ -29,7 +34,7 @@ export default function Header() {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="outline" size="sm" disabled>
+                  <Button variant="outline" size="sm" onClick={toggleAccessibilityMode} aria-pressed={isAccessibilityMode}>
                     Accessibility Mode
                   </Button>
                 </TooltipTrigger>
