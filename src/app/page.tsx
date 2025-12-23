@@ -38,6 +38,12 @@ export default function Home() {
           icon={<Laptop className="w-12 h-12" />}
         />
       </div>
+
+       <div className="pt-4">
+          <p className="text-sm text-muted-foreground">
+            No login. No tracking. Just recommendations.
+          </p>
+        </div>
     </div>
   );
 }

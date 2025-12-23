@@ -2,6 +2,13 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import Logo from "./shared/Logo";
 import { SECTORS } from "@/lib/constants";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Annoyed } from "lucide-react";
 
 export default function Header() {
   return (
@@ -20,10 +27,18 @@ export default function Header() {
           </Button>
         </nav>
         <div className="flex items-center">
-            {/* Placeholder for Accessibility Toggle */}
-           <Button variant="outline" size="sm" disabled>
-                Accessibility Mode
-            </Button>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="outline" size="sm" disabled>
+                    Accessibility Mode
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Bigger text • Simpler view</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
         </div>
       </div>
     </header>
