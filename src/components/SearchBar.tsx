@@ -43,13 +43,13 @@ export default function SearchBar() {
         <Popover open={isOpen} onOpenChange={setIsOpen}>
             <PopoverTrigger asChild className="w-full" ref={triggerRef}>
                 <div className="relative">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Search className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                     <Input
                         type="text"
                         placeholder="Search for any product..."
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        className="pl-12 pr-4 py-6 text-lg rounded-full"
+                        className="pr-12 pl-4 py-6 text-lg rounded-full"
                     />
                 </div>
             </PopoverTrigger>
