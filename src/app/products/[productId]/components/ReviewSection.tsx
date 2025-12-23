@@ -23,11 +23,6 @@ export default function ReviewSection({
       </CardHeader>
       <CardContent className="space-y-8">
         <div>
-          <h3 className="text-lg font-semibold mb-4">Leave a Review</h3>
-          <ReviewForm productId={productId} />
-        </div>
-
-        <div>
           <h3 className="text-lg font-semibold mb-4">What Users Are Saying</h3>
           {reviews.length > 0 ? (
             <div className="space-y-6">
