@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import React from "react";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import FeatureBar from "@/components/FeatureBar";
 
 // export const metadata: Metadata = {
 //   title: "JudgeKaro",
@@ -39,6 +40,7 @@ export default function RootLayout({
             disableTransitionOnChange
         >
             <Header />
+            <FeatureBar />
             <main className="flex-grow container mx-auto px-4 py-8">
             {children}
             </main>
