@@ -10,7 +10,7 @@ import React from "react";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 // export const metadata: Metadata = {
-//   title: "JudgeKro",
+//   title: "JudgeKaro",
 //   description: "Unbiased reviews for your next purchase.",
 // };
 
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>JudgeKro</title>
+        <title>JudgeKaro</title>
         <meta name="description" content="Unbiased reviews for your next purchase." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -31,7 +31,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`font-body antialiased min-h-screen flex flex-col`}>
+      <body className={`font-body antialiased min-h-screen flex flex-col bg-muted/30`}>
         <ThemeProvider
             attribute="class"
             defaultTheme="system"

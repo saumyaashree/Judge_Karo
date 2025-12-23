@@ -15,7 +15,7 @@ export default function Home() {
           Find what fits your use — <br /> not just the specs.
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-         JudgeKro delivers unbiased, data-driven recommendations to help you choose the right tech.
+         JudgeKaro delivers unbiased, data-driven recommendations to help you choose the right tech.
         </p>
       </div>
 
@@ -46,7 +46,7 @@ export default function Home() {
       
       {/* How It Works Section */}
       <div className="w-full max-w-4xl text-left">
-        <h2 className="text-3xl font-bold font-headline mb-8 text-center">Why Trust JudgeKro?</h2>
+        <h2 className="text-3xl font-bold font-headline mb-8 text-center">Why Trust JudgeKaro?</h2>
         <div className="grid md:grid-cols-3 gap-8">
             <Feature
                 icon={<Scale className="w-8 h-8 text-accent" />}

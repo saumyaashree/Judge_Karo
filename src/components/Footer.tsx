@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 
 export default function Footer() {
   return (
-    <footer className="bg-muted/50 mt-16 py-8">
+    <footer className="bg-card border-t mt-16 py-8">
       <div className="container mx-auto px-4 text-muted-foreground">
         <div className="flex flex-col items-center space-y-6">
           <Logo />
@@ -24,7 +24,7 @@ export default function Footer() {
           </nav>
           <AffiliateDisclaimer />
           <p className="text-sm">
-            &copy; {new Date().getFullYear()} JudgeKro. All rights reserved.
+            &copy; {new Date().getFullYear()} JudgeKaro. All rights reserved.
           </p>
         </div>
       </div>
