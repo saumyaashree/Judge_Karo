@@ -88,7 +88,7 @@ export default function QuestionnaireForm({
                           className="grid grid-cols-1 md:grid-cols-2 gap-4"
                         >
                           {question.options?.map((option) => (
-                            <FormItem key={option.value}>
+                            <FormItem key={option.value} className="space-y-0">
                                 <FormControl>
                                     <RadioGroupItem value={option.value} id={`${question.id}-${option.value}`} className="peer sr-only" />
                                 </FormControl>
