@@ -8,7 +8,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { Check, X, Loader2 } from "lucide-react";
 import { getProductById } from "@/lib/data";
 
-function ActionButton({ action, children }: { action: () => void, children: React.ReactNode }) {
+function ActionButton({ action, children, variant = 'default' }: { action: () => void, children: React.ReactNode, variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | null | undefined }) {
     const [isPending, startTransition] = useTransition();
 
     return (
@@ -16,6 +16,7 @@ function ActionButton({ action, children }: { action: () => void, children: Reac
             onClick={() => startTransition(action)}
             disabled={isPending}
             className="w-full"
+            variant={variant}
         >
             {isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : children}
         </Button>
@@ -23,6 +24,10 @@ function ActionButton({ action, children }: { action: () => void, children: Reac
 }
 
 export default function ReviewModerationList({ reviews }: { reviews: Review[] }) {
+    if (!reviews || reviews.length === 0) {
+        return <p className="text-muted-foreground text-center py-8">No reviews are currently flagged for moderation.</p>
+    }
+    
     return (
         <div className="space-y-4">
             {reviews.map((review) => {
@@ -50,11 +55,9 @@ export default function ReviewModerationList({ reviews }: { reviews: Review[] })
                                 <Check className="w-4 h-4 mr-2" /> Approve
                             </ActionButton>
                             
-                             <Button variant="destructive" asChild>
-                                <ActionButton action={() => rejectReviewAction(review.id)}>
-                                    <X className="w-4 h-4 mr-2" /> Reject
-                                </ActionButton>
-                            </Button>
+                            <ActionButton action={() => rejectReviewAction(review.id)} variant="destructive">
+                                <X className="w-4 h-4 mr-2" /> Reject
+                            </ActionButton>
                         </CardFooter>
                     </Card>
                 );

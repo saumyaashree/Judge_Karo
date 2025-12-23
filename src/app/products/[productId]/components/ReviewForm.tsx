@@ -9,7 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Slider } from '@/components/ui/slider';
 
@@ -29,21 +29,24 @@ export default function ReviewForm({ productId }: { productId: string }) {
     const [state, dispatch] = useFormState(submitReview, initialState);
     const formRef = useRef<HTMLFormElement>(null);
     const { toast } = useToast();
+    const [comfortRating, setComfortRating] = useState(8);
 
     useEffect(() => {
         if (state.message) {
-            if (state.errors) {
+            if (Object.keys(state.errors || {}).length > 0) {
                  toast({
-                    title: "Error",
+                    title: "Error submitting review",
                     description: state.message,
                     variant: "destructive",
                 });
             } else {
                  toast({
-                    title: "Success",
+                    title: "Review Submitted!",
                     description: state.message,
+                    variant: "default",
                 });
                 formRef.current?.reset();
+                setComfortRating(8);
             }
         }
     }, [state, toast]);
@@ -64,8 +67,11 @@ export default function ReviewForm({ productId }: { productId: string }) {
                 </div>
             </div>
             <div className="space-y-2 mb-4">
-                <Label htmlFor="comfortRating">Comfort Rating</Label>
-                <Slider defaultValue={[8]} min={1} max={10} step={1} name="comfortRating" id="comfortRating"/>
+                <div className="flex justify-between">
+                    <Label htmlFor="comfortRating">Comfort Rating</Label>
+                    <span className="text-sm font-bold">{comfortRating}/10</span>
+                </div>
+                <Slider defaultValue={[comfortRating]} onValueChange={(value) => setComfortRating(value[0])} min={1} max={10} step={1} name="comfortRating" id="comfortRating"/>
                 {state.errors?.comfortRating && <p className="text-sm text-destructive">{state.errors.comfortRating}</p>}
             </div>
 
