@@ -22,6 +22,7 @@ import { getRecommendations } from "@/lib/actions";
 import type { Questionnaire, UserAnswers } from "@/lib/types";
 import { useTransition } from "react";
 import { Loader2 } from "lucide-react";
+import { Label as ShadcnLabel } from "@/components/ui/label";
 
 // Dynamically create a Zod schema from the questionnaire
 const createSchema = (questionnaire: Questionnaire) => {
@@ -89,18 +90,14 @@ export default function QuestionnaireForm({
                           {question.options?.map((option) => (
                             <FormItem key={option.value}>
                                 <FormControl>
-                                <RadioGroupItem
-                                    value={option.value}
-                                    id={`${question.id}-${option.value}`}
-                                    className="sr-only"
-                                />
+                                    <RadioGroupItem value={option.value} id={`${question.id}-${option.value}`} className="peer sr-only" />
                                 </FormControl>
-                                <Label
-                                htmlFor={`${question.id}-${option.value}`}
-                                className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                                <ShadcnLabel
+                                    htmlFor={`${question.id}-${option.value}`}
+                                    className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
                                 >
-                                {option.label}
-                                </Label>
+                                    {option.label}
+                                </ShadcnLabel>
                             </FormItem>
                           ))}
                         </RadioGroup>
@@ -136,10 +133,3 @@ export default function QuestionnaireForm({
     </Card>
   );
 }
-
-// Custom Label component for RadioGroupItem styling
-const Label = ({ htmlFor, className, children }: { htmlFor: string, className?: string, children: React.ReactNode }) => (
-  <label htmlFor={htmlFor} className={className}>
-    {children}
-  </label>
-);
