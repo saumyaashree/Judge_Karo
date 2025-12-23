@@ -11,7 +11,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import FeatureBar from "@/components/FeatureBar";
 
 // export const metadata: Metadata = {
-//   title: "SpecCheck",
+//   title: "JudgeKaro",
 //   description: "Unbiased reviews for your next purchase.",
 // };
 
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>SpecCheck</title>
+        <title>JudgeKaro</title>
         <meta name="description" content="Unbiased reviews for your next purchase." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
