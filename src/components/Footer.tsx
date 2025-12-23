@@ -24,7 +24,7 @@ export default function Footer() {
           </nav>
           <AffiliateDisclaimer />
           <p className="text-sm">
-            &copy; {new Date().getFullYear()} JudgeKaro. All rights reserved.
+            &copy; {new Date().getFullYear()} SpecCheck. All rights reserved.
           </p>
         </div>
       </div>
