@@ -8,7 +8,7 @@ export default function FeatureBar() {
     <div className="bg-black text-white sticky top-16 z-40">
       <nav className="container mx-auto px-4">
         <ul className="flex items-center justify-center -mb-px h-12 space-x-2 md:space-x-4 lg:space-x-8 text-sm font-medium">
-          <FeatureLink href="#">
+          <FeatureLink href="/compare?products=pixel-8-pro,iphone-15-pro">
             <Scale />
             Compare Devices
           </FeatureLink>
