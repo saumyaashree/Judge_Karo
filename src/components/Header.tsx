@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header className="bg-card border-b sticky top-0 z-50">
       <div className="container mx-auto px-4 flex items-center justify-between h-16 gap-4">
-        <div className="flex items-center gap-6">
+        <div>
             <Logo />
         </div>
         <div className="flex-1 flex justify-center px-8">
@@ -19,7 +19,7 @@ export default function Header() {
                 <SearchBar />
             </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div>
             <ThemeToggle />
         </div>
       </div>
