@@ -9,12 +9,12 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center text-center space-y-8">
       <div className="space-y-4">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground font-headline">
-          Welcome to {" "}
+          Welcome to{" "}
           <span className="text-accent">JudgeKro</span>
           .
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-          Unbiased, data-driven reviews. No marketing fluff. No paid rankings. Judge for yourself.
+          Find what fits your use — not just specs.
         </p>
       </div>
 
