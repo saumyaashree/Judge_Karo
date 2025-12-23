@@ -1,6 +1,7 @@
+
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { products } from '@/lib/data';
 import type { Product } from '@/lib/types';
@@ -14,6 +15,8 @@ export default function SearchBar() {
   const [results, setResults] = useState<Product[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
 
   useEffect(() => {
     if (query.length > 1) {
@@ -36,27 +39,32 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="relative w-full max-w-xs">
+    <div className="relative w-full max-w-2xl mx-auto">
         <Popover open={isOpen} onOpenChange={setIsOpen}>
-            <PopoverTrigger asChild className="w-full">
+            <PopoverTrigger asChild className="w-full" ref={triggerRef}>
                 <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                     <Input
                         type="text"
-                        placeholder="Search for a product..."
+                        placeholder="Search for any product..."
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        className="pl-10"
+                        className="pl-12 pr-4 py-6 text-lg rounded-full"
                     />
                 </div>
             </PopoverTrigger>
-            <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0" align="start">
+            <PopoverContent 
+                className="w-[var(--radix-popover-trigger-width)] p-0" 
+                align="start"
+                onOpenAutoFocus={(e) => e.preventDefault()}
+            >
                 {results.length > 0 ? (
                     <div className="py-2">
+                        <p className="text-xs font-semibold text-muted-foreground px-4 py-1">PRODUCTS</p>
                         {results.map((product) => (
                         <div
                             key={product.id}
-                            onClick={() => handleSelect(product.id)}
+                            onMouseDown={() => handleSelect(product.id)}
                             className="flex items-center gap-4 px-4 py-2 hover:bg-muted cursor-pointer"
                         >
                             <Image
@@ -75,7 +83,7 @@ export default function SearchBar() {
                         ))}
                     </div>
                 ) : (
-                    query.length > 1 && <p className="p-4 text-sm text-muted-foreground">No results found.</p>
+                    query.length > 1 && <p className="p-4 text-sm text-muted-foreground">No results found for "{query}".</p>
                 )}
             </PopoverContent>
         </Popover>
