@@ -32,7 +32,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`font-body antialiased min-h-screen flex flex-col bg-muted/30`}>
+      <body className={`font-body antialiased min-h-screen flex flex-col bg-background`}>
         <ThemeProvider
             attribute="class"
             defaultTheme="system"
