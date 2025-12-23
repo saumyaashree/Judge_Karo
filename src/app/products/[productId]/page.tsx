@@ -10,6 +10,9 @@ import ReviewSection from "./components/ReviewSection";
 import Link from "next/link";
 import { ArrowRight, MessageSquareWarning, ThumbsDown } from "lucide-react";
 import ReviewForm from "./components/ReviewForm";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { isObject } from "util";
 
 export default function ProductDetailPage({ params }: { params: { productId: string } }) {
   const product = getProductById(params.productId);
@@ -55,6 +58,34 @@ export default function ProductDetailPage({ params }: { params: { productId: str
 
         {/* Real-World Experience Scores */}
         {scores && <RealWorldScores scores={scores} />}
+
+        {/* Technical Specs */}
+        <Card>
+            <CardHeader>
+                <CardTitle>Technical Specifications</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <Accordion type="multiple" defaultValue={Object.keys(product.specs)} className="w-full">
+                    {Object.entries(product.specs).map(([groupName, groupSpecs]) => (
+                        <AccordionItem value={groupName} key={groupName}>
+                            <AccordionTrigger className="text-xl font-bold hover:no-underline">{groupName}</AccordionTrigger>
+                            <AccordionContent>
+                                <Table>
+                                    <TableBody>
+                                        {Object.entries(groupSpecs).map(([specName, specValue]) => (
+                                            <TableRow key={specName}>
+                                                <TableHead className="font-semibold">{specName}</TableHead>
+                                                <TableCell>{typeof specValue === 'object' ? JSON.stringify(specValue) : String(specValue)}</TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </AccordionContent>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
+            </CardContent>
+        </Card>
 
         {/* Scenario-Tagged Reviews */}
         <ReviewSection productId={product.id} initialReviews={reviews} />
@@ -106,23 +137,6 @@ export default function ProductDetailPage({ params }: { params: { productId: str
                   </ul>
               </CardContent>
           </Card>
-        
-         {/* Technical Specs */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Technical Specs</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 gap-4">
-              {Object.entries(product.specs).map(([key, value]) => (
-                <div key={key}>
-                  <p className="font-semibold">{key}</p>
-                  <p className="text-muted-foreground">{value}</p>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </div>
   );

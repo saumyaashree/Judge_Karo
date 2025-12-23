@@ -1,6 +1,9 @@
 // Product related types
 export type Sector = "smartphones" | "earphones" | "laptops";
 
+export type SpecValue = string | number | boolean | string[];
+export type SpecGroup = { [key: string]: SpecValue | { [key: string]: SpecValue } };
+
 export type Product = {
   id: string;
   name: string;
@@ -12,7 +15,9 @@ export type Product = {
   goodFor: string[];
   notGoodFor: string[];
   commonRegrets: string[];
-  specs: Record<string, string>;
+  specs: {
+    [groupName: string]: SpecGroup;
+  };
   tags: string[]; // for use-case matching
   upcomingModel?: boolean;
   alternatives: string[]; // array of product IDs
