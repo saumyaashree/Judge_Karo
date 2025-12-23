@@ -8,14 +8,13 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center text-center space-y-8">
       <div className="space-y-4">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-accent-foreground font-headline">
-          Find the best product for{" "}
-          <span className="text-accent">your life</span>
-          <br />— not for a brand.
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground font-headline">
+          Welcome to {" "}
+          <span className="text-accent">JudgeKro</span>
+          .
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-          No marketing fluff. No paid rankings. Just honest, use-case driven
-          recommendations to help you find what truly works for you.
+          Unbiased, data-driven reviews. No marketing fluff. No paid rankings. Judge for yourself.
         </p>
       </div>
 

@@ -5,8 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "BestThingFinder",
-  description: "Find the best product for your life — not a brand.",
+  title: "JudgeKro",
+  description: "Unbiased reviews for your next purchase.",
 };
 
 export default function RootLayout({

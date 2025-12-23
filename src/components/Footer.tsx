@@ -9,7 +9,7 @@ export default function Footer() {
           <Logo />
           <AffiliateDisclaimer />
           <p className="text-sm">
-            &copy; {new Date().getFullYear()} BestThingFinder. All rights reserved.
+            &copy; {new Date().getFullYear()} JudgeKro. All rights reserved.
           </p>
         </div>
       </div>
