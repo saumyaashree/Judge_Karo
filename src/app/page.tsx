@@ -4,25 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Smartphone, Headphones, Laptop, Scale, ShieldCheck, Microscope } from "lucide-react";
 import { SECTORS } from "@/lib/constants";
-import SearchBar from "@/components/SearchBar";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center text-center space-y-16">
       
       {/* Hero Section */}
-      <div className="space-y-4 w-full max-w-2xl">
+      <div className="space-y-4 w-full max-w-2xl pt-8">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground font-headline">
           Find what fits your use — <br /> not just the specs.
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
          JudgeKro delivers unbiased, data-driven recommendations to help you choose the right tech.
         </p>
-      </div>
-
-      {/* Full Width Search Bar */}
-      <div className="w-full max-w-2xl">
-        <SearchBar />
       </div>
 
       {/* Categories Section */}
